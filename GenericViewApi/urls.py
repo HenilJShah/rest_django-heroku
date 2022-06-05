@@ -19,7 +19,7 @@ urlpatterns = [
     # docs
     path('api_schema', get_schema_view(title='api schema',
          description='guide'), name='api_schema'),
-    path('swagger-ui/', TemplateView.as_view(
+    path('docs/', TemplateView.as_view(
         template_name='docs.html',
         extra_context={'schema_url': 'api_schema'}
     ), name='swagger-ui'),

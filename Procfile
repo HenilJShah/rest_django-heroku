@@ -1,0 +1,1 @@
+web: waitress-serve.exe --port=$PORT Apiroot.wsgi:application
