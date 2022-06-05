@@ -30,6 +30,7 @@ urlpatterns = [
     path('cls/', include('ClassBasedViewAPi.urls')),
     path('gen/', include('GenericViewApi.urls')),
     path('cv/', include('ConcreteViewApi.urls')),
+    path('vs/', include('ViewSetApi.urls')),
 
     # docs
     path('api_schema', get_schema_view(title='api schema',

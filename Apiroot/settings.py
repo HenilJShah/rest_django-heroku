@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'GenericViewApi',
     'corsheaders',
     'ConcreteViewApi',
+    'ViewSetApi',
+    'BasicAuthApi',
     'rest_framework_swagger',
 ]
 
