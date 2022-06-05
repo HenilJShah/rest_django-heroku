@@ -15,13 +15,4 @@ urlpatterns = [
     path('stu/', List_and_Create_Student.as_view()),
     path('stu/<int:pk>/', update_retrieve_and_delete_student.as_view()),
 
-
-    # docs
-    path('api_schema', get_schema_view(title='api schema',
-         description='guide'), name='api_schema'),
-    path('docs/', TemplateView.as_view(
-        template_name='docs.html',
-        extra_context={'schema_url': 'api_schema'}
-    ), name='swagger-ui'),
-
 ]
