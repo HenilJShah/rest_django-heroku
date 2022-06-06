@@ -1,9 +1,13 @@
 from rest_framework import viewsets
-from ViewSetApi.models import Student
-from ViewSetApi.serializers import StudentSerializers
+from .models import Student
+from .serializers import StudentSerializers
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 
 # Create your views here.
-class StudentApi(viewsets.ModelViewSet):
+class StudentAuthApi(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializers
+    authentication_classes = [BasicAuthentication]
+    permission_classes = [IsAuthenticated]

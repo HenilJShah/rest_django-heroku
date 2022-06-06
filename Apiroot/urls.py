@@ -18,7 +18,6 @@ from django.urls import path, include
 from rest_framework.schemas import get_schema_view
 from django.views.generic import TemplateView
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('SerializertionApi.urls')),
@@ -31,6 +30,7 @@ urlpatterns = [
     path('gen/', include('GenericViewApi.urls')),
     path('cv/', include('ConcreteViewApi.urls')),
     path('vs/', include('ViewSetApi.urls')),
+    path('ba/', include('BasicAuthApi.urls')),
 
     # docs
     path('api_schema', get_schema_view(title='api schema',

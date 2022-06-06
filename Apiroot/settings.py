@@ -15,19 +15,21 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ['SECRET_KEY']
-SECRET_KEY = 'django-insecure-hofz2(d&x5j1z_3cs*nl59py!#0&z_0!_sfv$1-zuyj!at5vtn'
+
+try:
+    if os.environ['SECRET_KEY']:
+        SECRET_KEY = os.environ['SECRET_KEY']
+except:
+    SECRET_KEY = 'django-insecure-hofz2(d&x5j1z_3cs*nl59py!#0&z_0!_sfv$1-zuyj!at5vtn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["deadpool-api.herokuapp.com", "localhost", "127.0.0.1"]
-
 
 # Application definition
 
@@ -52,6 +54,7 @@ INSTALLED_APPS = [
     'ViewSetApi',
     'BasicAuthApi',
     'rest_framework_swagger',
+    'AuthuserApiApp',
 ]
 
 MIDDLEWARE = [
@@ -71,7 +74,7 @@ ROOT_URLCONF = 'Apiroot.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'templates'],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,7 +88,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Apiroot.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -108,7 +110,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -127,7 +128,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -138,7 +138,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -161,3 +160,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
 ]
 STATIC_ROOT = BASE_DIR / 'static'
+
+# models
+AUTH_USER_MODEL = "AuthuserApiApp.User"
